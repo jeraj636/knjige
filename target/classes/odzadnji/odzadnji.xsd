@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xs:element name="odzadnji">
+      <!-- korenski element -->
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="GESLO"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="GESLO">
+      <!-- geslo -->
+      <xs:complexType>
+         <xs:sequence>
+            <xs:choice>
+               <xs:sequence>
+                  <xs:element ref="IZT"/>
+                  <xs:element ref="NIZT"/>
+               </xs:sequence>
+               <xs:sequence>
+                  <xs:element ref="PIZT"/>
+                  <xs:element ref="NPIZT"/>
+               </xs:sequence>
+            </xs:choice>
+            <xs:element minOccurs="0" ref="O"/>
+            <xs:element minOccurs="0" ref="IZG"/>
+            <xs:element ref="BV"/>
+            <xs:choice minOccurs="0">
+               <xs:element ref="SKLIC"/>
+               <xs:element ref="T"/>
+            </xs:choice>
+            <xs:element ref="struktura"/>
+            <xs:element ref="akcent"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="PIZT" type="xs:string"/>
+   <!-- podiztočnica v SSKJ -->
+   <xs:element name="NPIZT" type="xs:string"/>
+   <!-- neonaglašena podiztočnica v SSKJ -->
+   <xs:element name="IZT">
+      <!-- iztočnica -->
+      <xs:complexType mixed="true">
+         <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="sup"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="NIZT" type="xs:string"/>
+   <!-- neonaglašena iztočnica -->
+   <xs:element name="O">
+      <!-- oblikoslovni podatki -->
+      <xs:complexType>
+         <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+               <xs:element ref="KV"/>
+               <xs:element ref="obrazilo"/>
+            </xs:choice>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="dvojnica"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="dvojnica">
+      <!-- dvojnica -->
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="KV"/>
+            <xs:element ref="obrazilo"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="IZG">
+      <!-- izgovor -->
+      <xs:complexType mixed="true">
+         <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="KV"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="BV">
+      <!-- besedna vrsta -->
+      <xs:complexType>
+         <xs:choice>
+            <xs:element ref="deležje"/>
+            <xs:element ref="deležnik"/>
+            <xs:element ref="glagol"/>
+            <xs:element ref="medmet"/>
+            <xs:element ref="ostalo"/>
+            <xs:element ref="predlog"/>
+            <xs:element ref="pridevnik"/>
+            <xs:element ref="prislov"/>
+            <xs:element ref="samostalnik"/>
+            <xs:element ref="veznik"/>
+            <xs:element ref="zaimek"/>
+            <xs:element ref="člen"/>
+            <xs:element ref="členek"/>
+            <xs:element ref="števnik"/>
+         </xs:choice>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="deležje" type="xs:NCName"/>
+   <xs:element name="deležnik" type="xs:NCName"/>
+   <xs:element name="glagol" type="xs:string"/>
+   <xs:element name="medmet" type="xs:NCName"/>
+   <xs:element name="ostalo" type="xs:string"/>
+   <xs:element name="predlog" type="xs:NCName"/>
+   <xs:element name="pridevnik" type="xs:NCName"/>
+   <xs:element name="prislov" type="xs:NCName"/>
+   <xs:element name="samostalnik" type="xs:string"/>
+   <xs:element name="veznik" type="xs:NCName"/>
+   <xs:element name="zaimek" type="xs:string"/>
+   <xs:element name="člen" type="xs:NCName"/>
+   <xs:element name="členek" type="xs:NCName"/>
+   <xs:element name="števnik" type="xs:string"/>
+   <xs:element name="SKLIC">
+      <!-- referenca med podiztočnico in iztočnico v SSKJ -->
+      <xs:complexType mixed="true">
+         <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="sup"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="T" type="xs:string"/>
+   <!-- tonemski naglas -->
+   <xs:element name="struktura" type="xs:NCName"/>
+   <!-- zaporedje soglasnikov in samoglasnikov v besedi -->
+   <xs:element name="akcent" type="xs:integer"/>
+      <!-- število naglasnih mest -->
+   <xs:element name="sup" type="xs:integer"/>
+   <!-- nadpisano -->
+   <xs:element name="KV" type="xs:string">
+      <!-- kvalifikator -->
+   </xs:element>
+   <xs:element name="obrazilo" type="xs:string"/>
+   <!-- obrazilo -->
+</xs:schema>
