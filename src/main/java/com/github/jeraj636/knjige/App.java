@@ -14,6 +14,7 @@ public class App {
     public static void main(String[] args) {
         try {
             Baza.init();
+            //Inicializacija baze
             Baza.urediBesede();
         } catch (IOException | SQLException e) {
             LOGGER.error(e.getMessage());
