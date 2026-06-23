@@ -1,2 +1,2 @@
-src/main/resources/slwikisource/slwikisource-20260501-pages-articles.xml filter=lfs diff=lfs merge=lfs -text
 *.xml filter=lfs diff=lfs merge=lfs -text
+src/main/resources/slwikisource/slwikisource-20260501-pages-articles.xml filter=lfs diff=lfs merge=lfs -text
